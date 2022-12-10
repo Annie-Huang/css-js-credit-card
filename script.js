@@ -51,6 +51,10 @@ document.addEventListener('keydown', (e) => {
       break;
     }
     default: {
+      if (e.ctrlKey || e.altKey) return;
+
+      // Don't do anything if user is not typing 0-9 number
+      if (key.match(/^[^0-9]$/)) return e.preventDefault();
     }
   }
 });
