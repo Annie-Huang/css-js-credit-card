@@ -61,3 +61,13 @@
   position: absolute;
   top: -200vh;
 }
+
+.credit-card .horizontal-input-stack {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.credit-card .cc-inputs input {
+  width: 4ch;
+  font-family: monospace; /* monospace is the one that have all number with the same width. and it's how normal credit card number uses */
+}
