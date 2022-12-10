@@ -39,3 +39,15 @@
   font-size: 1.25rem;
   font-weight: bold;
 }
+
+.credit-card .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.credit-card fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
