@@ -7,3 +7,13 @@ for (let i = currentYear; i < currentYear + 10; i++) {
   option.innerText = i;
   expirationSelect.append(option);
 }
+
+document.addEventListener('keydown', (e) => {
+  const input = e.target;
+  if (!isConnectedInput(input)) return;
+});
+
+function isConnectedInput(input) {
+  const parent = input.closest('[data-connected-inputs]');
+  return input.matches('input') && parent != null;
+}
