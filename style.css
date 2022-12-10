@@ -93,3 +93,18 @@
 .credit-card .name-group {
   flex-grow: 1;
 }
+
+.credit-card .front::before {
+  content: '';
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  border-radius: 100%;
+
+  /* It is the 0.15 that make is transparent, otherwise it will be white color */
+  background-color: hsl(0, 0%, 100%, 0.15);
+
+  top: -250px;
+  left: -150px;
+  z-index: -1; /* otherwise, we cannot click on into the input */
+}
