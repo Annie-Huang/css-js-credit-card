@@ -108,3 +108,15 @@
   left: -150px;
   z-index: -1; /* otherwise, we cannot click on into the input */
 }
+
+.credit-card .front::after {
+  content: '';
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  border-radius: 100%;
+  background-color: hsl(0, 0%, 100%, 0.075);
+  bottom: -475px;
+  left: -150px;
+  z-index: -1; /* otherwise, we cannot click on into the input */
+}
