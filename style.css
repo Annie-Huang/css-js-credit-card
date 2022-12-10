@@ -123,8 +123,8 @@
 
 .credit-card .back {
   position: absolute;
-  /*top: 2rem;*/
-  /*left: 3.25rem;*/
+  top: 2rem;
+  left: 3.25rem;
 }
 
 .credit-card .stripe {
