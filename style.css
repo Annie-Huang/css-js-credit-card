@@ -19,7 +19,7 @@
   flex-direction: column;
   gap: 1rem;
   z-index: 1;
-  overflow: hidden;
+  /*overflow: hidden;*/
   position: relative;
 }
 
@@ -70,4 +70,12 @@
 .credit-card .cc-inputs input {
   width: 4ch;
   font-family: monospace; /* monospace is the one that have all number with the same width. and it's how normal credit card number uses */
+}
+
+.credit-card input,
+.credit-card select {
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 0.25em;
+  appearance: none; /* this is to remove the chevron down symbol in the dropdown field */
 }
