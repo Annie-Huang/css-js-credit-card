@@ -27,3 +27,15 @@
   display: flex;
   margin-bottom: auto; /* this will push the rest of the .credit-card's children to place to the end of the bottom */
 }
+
+.credit-card .logo {
+  height: 40px;
+  width: 50px;
+  flex-grow: 0;
+}
+
+.credit-card .brand-name {
+  flex-grow: 1;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
