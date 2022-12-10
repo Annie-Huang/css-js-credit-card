@@ -19,16 +19,33 @@ document.addEventListener('keydown', (e) => {
    */
 
   switch (key) {
+    // If you are at the beginning of a credit number field and you press ArrowLeft, it will move to the end of the previous credit card input field.
     case 'ArrowLeft': {
       // console.log(input.selectionStart);
       // console.log(input.selectionEnd);
-
-      // If you are at the beginning of a credit number field and you click ArrowLeft, it will move to the previous credit card input field.
       if (input.selectionStart === 0 && input.selectionEnd === 0) {
         const prev = input.previousElementSibling;
         prev.focus();
-        prev.selectionStart = prev.value.length - 1;
-        prev.selectionEnd = prev.value.length - 1;
+
+        /* The one from webdevsimplify is prev.value.length -1 */
+        prev.selectionStart = prev.value.length;
+        prev.selectionEnd = prev.value.length;
+
+        e.preventDefault();
+      }
+      break;
+    }
+
+    // If you are at the end of a credit card input field (doesn't matter if you only enter 1|2|3 digits only), press ArrowRight will always move to the beginning of the next credit card input field.
+    case 'ArrowRight': {
+      if (
+        input.selectionStart === input.value.length &&
+        input.selectionEnd === input.value.length
+      ) {
+        const next = input.nextElementSibling;
+        next.focus();
+        next.selectionStart = 0; /* The one from webdevsimplify is 1 */
+        next.selectionEnd = 0; /* The one from webdevsimplify is 1 */
         e.preventDefault();
       }
       break;
