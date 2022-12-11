@@ -98,6 +98,11 @@ function focusInput(input, dataLength) {
     addedChars -= 4;
     currentInput = currentInput.nextElementSibling;
   }
+  if (addedChars > 4) addedChars = 4;
+
+  currentInput.focus();
+  currentInput.selectionStart = addedChars;
+  currentInput.selectionEnd = addedChars;
 }
 
 function isConnectedInput(input) {
