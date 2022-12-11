@@ -69,7 +69,7 @@ function onInputChange(input, newValue) {
   updateInputValue(input, newValue, start, end);
 
   // You will notice without this function, when you enter 12345678, the field is 123487654
-  focusInput();
+  focusInput(input, newValue.length + start);
 }
 
 // This is for when user highlight some string and then replace with the typing.
@@ -86,6 +86,17 @@ function updateInputValue(input, extraValue, start = 0, end = 0) {
     const next = input.nextElementSibling;
     if (next === null) return;
     updateInputValue(next, newValue.substring(4));
+  }
+}
+
+function focusInput(input, dataLength) {
+  let addedChars = dataLength;
+  let currentInput = input;
+
+  // Add while loop until of the conditional is false
+  while (addedChars > 4 && currentInput.nextElementSibling != null) {
+    addedChars -= 4;
+    currentInput = currentInput.nextElementSibling;
   }
 }
 
