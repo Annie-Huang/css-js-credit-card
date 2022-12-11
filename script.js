@@ -66,7 +66,9 @@ document.addEventListener('keydown', (e) => {
 function onInputChange(input, newValue) {
   const start = input.selectionStart;
   const end = input.selectionStart;
-  updateInputValue(input, newValue);
+  updateInputValue(input, newValue, start, end);
+
+  // You will notice without this function, when you enter 12345678, the field is 123487654
   focusInput();
 }
 
@@ -78,6 +80,13 @@ function updateInputValue(input, extraValue, start = 0, end = 0) {
     start
   )}${extraValue}${input.value.substring(end, 4)}`;
   input.value = newValue.substring(0, 4);
+
+  // Create recursive function to keep adding the value until it finishes
+  if (newValue > 4) {
+    const next = input.nextElementSibling;
+    if (next === null) return;
+    updateInputValue(next, newValue.substring(4));
+  }
 }
 
 function isConnectedInput(input) {
