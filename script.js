@@ -55,9 +55,30 @@ document.addEventListener('keydown', (e) => {
 
       // Don't do anything if user is not typing 0-9 number
       if (key.match(/^[^0-9]$/)) return e.preventDefault();
+
+      e.preventDefault();
+      onInputChange(input, key);
     }
   }
 });
+
+// new value doesn't have to be 1 digits, user can copy the whole digits e.g. 56789, and ready to do a ctrl+paste to put the new value in.
+function onInputChange(input, newValue) {
+  const start = input.selectionStart;
+  const end = input.selectionStart;
+  updateInputValue(input, newValue);
+  focusInput();
+}
+
+// This is for when user highlight some string and then replace with the typing.
+// e.g. the input has 1234, user highlight 23 and do a paste value of 56789, then we need to handle to put 1567894 into the input field.
+function updateInputValue(input, extraValue, start = 0, end = 0) {
+  const newValue = `${input.value.substring(
+    0,
+    start
+  )}${extraValue}${input.value.substring(end, 4)}`;
+  input.value = newValue.substring(0, 4);
+}
 
 function isConnectedInput(input) {
   const parent = input.closest('[data-connected-inputs]');

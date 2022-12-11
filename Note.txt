@@ -4,3 +4,11 @@ https://github.com/WebDevSimplified/css-js-credit-card
 https://github.com/Annie-Huang/css-js-credit-card
 
 --------------------------------------------------------------
+
+Credit card enter logic includes:
+- If you are at the beginning of a credit number field and you press ArrowLeft, it will move to the end of the previous credit card input field.
+
+- If you are at the end of a credit card input field (doesn't matter if you only enter 1|2|3 digits only), press ArrowRight will always move to the beginning of the next credit card input field.
+
+- This is for when user highlight some string and then replace with the typing.
+  e.g. the input has 1234, user highlight 23 and do a paste value of 56789, then we need to handle to put 1567894 into the input field.
