@@ -62,6 +62,17 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+document.addEventListener('paste', (e) => {
+  const input = e.target;
+  const data = e.clipboardData.getData('text');
+
+  if (!isConnectedInput(input)) return;
+  if (!data.match(/^[0-9]+$/)) return e.preventDefault();
+
+  e.preventDefault();
+  onInputChange(input, data);
+});
+
 // new value doesn't have to be 1 digits, user can copy the whole digits e.g. 56789, and ready to do a ctrl+paste to put the new value in.
 function onInputChange(input, newValue) {
   const start = input.selectionStart;
