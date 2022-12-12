@@ -22,3 +22,8 @@ Credit card enter logic includes:
   when my cursor is after 6 and i click 'delete' -> 1234 568 90 (with cursor still after 6)
   -> i click 'delete' -> 1234 56 90 (with cursor still after 6)
   -> i click 'delete' -> 1234 56 0 (with cursor still in front of 0)
+
+- 'Backspace' will delete the previous character and move to the previous input box if there is more to delete, e.g.
+   1234 5678 9
+   When my cursor is after 9 and I click 'Backspace' -> 1234 5678 (with cursor at the beginning of the 3rd input field)
+   -> i click 'Backspace' -> 1234 567 (with cursor after 7)

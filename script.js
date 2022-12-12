@@ -67,6 +67,20 @@ document.addEventListener('keydown', (e) => {
       }
       break;
     }
+    case 'Backspace': {
+      if (input.selectionStart === 0 && input.selectionEnd === 0) {
+        const prev = input.previousElementSibling;
+        // Need to handle when the all inputs are empty, user is in the 1st input field and click 'Backspace'
+        if (prev) {
+          prev.value = prev.value.substring(0, prev.value.length - 1);
+          prev.focus();
+          prev.selectionStart = prev.value.length;
+          prev.selectionEnd = prev.value.length;
+          e.preventDefault();
+        }
+      }
+      break;
+    }
     default: {
       if (e.ctrlKey || e.altKey) return;
 
