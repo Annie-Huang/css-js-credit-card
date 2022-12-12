@@ -27,3 +27,5 @@ Credit card enter logic includes:
    1234 5678 9
    When my cursor is after 9 and I click 'Backspace' -> 1234 5678 (with cursor at the beginning of the 3rd input field)
    -> i click 'Backspace' -> 1234 567 (with cursor after 7)
+
+- If 1st input start with 4, show visa logo. If it starts with a 5, show master card logo

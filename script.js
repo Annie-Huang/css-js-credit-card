@@ -1,4 +1,5 @@
 const expirationSelect = document.querySelector('[data-expiration-year]');
+const logo = document.querySelector('[data-logo]');
 
 const currentYear = new Date().getFullYear();
 for (let i = currentYear; i < currentYear + 10; i++) {
@@ -115,6 +116,17 @@ function onInputChange(input, newValue) {
 
   // You will notice without this function, when you enter 12345678, the field is 123487654
   focusInput(input, newValue.length + start);
+
+  // Go to the parent of 4 inputs and then select the first <input> field, which is the 1st input
+  const firstFour = input
+    .closest('[data-connected-inputs]')
+    .querySelector('input').value;
+
+  if (firstFour.startsWith('4')) {
+    logo.src = 'visa.svg';
+  } else if (firstFour.startsWith('5')) {
+    logo.src = 'mastercard.svg';
+  }
 }
 
 // This is for when user highlight some string and then replace with the typing.
