@@ -50,6 +50,23 @@ document.addEventListener('keydown', (e) => {
       }
       break;
     }
+    case 'Delete': {
+      if (
+        input.selectionStart === input.value.length &&
+        input.selectionEnd === input.value.length
+      ) {
+        const next = input.nextElementSibling;
+        // Need to handle if user is at the end of full 16 digits (4th input, and cursor is after the 4 digits) because it doesn't have a nextElementSibling
+        if (next) {
+          next.value = next.value.substring(1, next.value.length);
+          next.focus();
+          next.selectionStart = 0;
+          next.selectionEnd = 0;
+          e.preventDefault();
+        }
+      }
+      break;
+    }
     default: {
       if (e.ctrlKey || e.altKey) return;
 

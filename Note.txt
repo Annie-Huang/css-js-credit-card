@@ -16,3 +16,9 @@ Credit card enter logic includes:
 - Can handle paste event, either put the cursor into a position and ctrl+paste. Or highlight some digits and ctrl+paste to replace
 
 - 'tab' will work as normal
+
+- 'delete' will delete the next character and move to the next input box if more to delete. e.g.
+  1234 5678 90
+  when my cursor is after 6 and i click 'delete' -> 1234 568 90 (with cursor still after 6)
+  -> i click 'delete' -> 1234 56 90 (with cursor still after 6)
+  -> i click 'delete' -> 1234 56 0 (with cursor still in front of 0)
